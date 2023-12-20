@@ -42,3 +42,4 @@ package-lock.json
 **/*.bun
 src/test.ts
 bun.lockb
+dist

@@ -3,7 +3,7 @@ import { Options, Packr } from "msgpackr"
 
 const DEFAULT_MIME_TYPE = "application/x-msgpack"
 
-export function msgpack(options: Options & { mimeType?: string }) {
+export function msgpack(options: Options & { mimeType?: string } = {}) {
     const packr = new Packr(options)
 
     return new Elysia()
