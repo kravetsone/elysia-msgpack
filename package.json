@@ -1,9 +1,10 @@
 {
     "name": "elysia-msgpack",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "module": "src/index.js",
     "type": "module",
     "scripts": {
+        "prepublishOnly": "tsc",
         "dev": "bun run --watch src/index.ts",
         "lint": "eslint \"src/**/*.{ts,tsx,js,mjs,cjs}\"",
         "lint:fix": "eslint \"src/**/*.{ts,tsx,js,mjs,cjs}\" --fix"
@@ -12,7 +13,7 @@
         "msgpackr": "^1.10.0"
     },
     "peerDependencies": {
-        "elysia": "^0.7.29"
+        "elysia": "^0.7.0"
     },
     "devDependencies": {
         "bun-types": "latest",
