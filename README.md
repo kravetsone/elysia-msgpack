@@ -1,6 +1,6 @@
 # elysia-msgpack
 
-The library for [elysia](elysia) which allows you to work with [MessagePack](https://msgpack.org). To pack/unpack it, we use really fast [msgpackr](https://github.com/kriszyp/msgpackr)
+The library for [elysia](https://elysiajs.com) which allows you to work with [MessagePack](https://msgpack.org). To pack/unpack it, we use really fast [msgpackr](https://github.com/kriszyp/msgpackr)
 
 ## Installation
 
