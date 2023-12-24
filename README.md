@@ -1,11 +1,11 @@
 # elysia-msgpack
 
-A library for [elysia](elysia) which allows you to work with [MessagePack](https://msgpack.org). To pack/unpack it, we use really fast [msgpackr](https://github.com/kriszyp/msgpackr)
+The library for [elysia](elysia) which allows you to work with [MessagePack](https://msgpack.org). To pack/unpack it, we use really fast [msgpackr](https://github.com/kriszyp/msgpackr)
 
 ## Installation
 
 ```bash
-bun i elysia-msgpack
+bun install elysia-msgpack
 ```
 
 ## Usage
