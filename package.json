@@ -1,6 +1,7 @@
 {
     "name": "elysia-msgpack",
-    "version": "0.0.2",
+    "version": "0.0.3",
+    "homepage": "https://github.com/kravetsone/elysia-msgpack",
     "module": "src/index.js",
     "type": "module",
     "scripts": {
@@ -13,7 +14,7 @@
         "msgpackr": "^1.10.0"
     },
     "peerDependencies": {
-        "elysia": "^0.7.0"
+        "elysia": "^0.8.0"
     },
     "devDependencies": {
         "bun-types": "latest",
