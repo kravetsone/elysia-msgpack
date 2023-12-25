@@ -3,6 +3,7 @@ import { Options, Packr } from "msgpackr"
 
 const DEFAULT_MIME_TYPE = "application/x-msgpack"
 
+// TODO: worry about onError serialize to msgpack
 export function msgpack(options: Options & { mimeType?: string } = {}) {
     const packr = new Packr(options)
 
@@ -14,7 +15,7 @@ export function msgpack(options: Options & { mimeType?: string } = {}) {
             if (contentType === (options.mimeType ?? DEFAULT_MIME_TYPE))
                 return packr.unpack(new Uint8Array(await request.arrayBuffer()))
         })
-        .onAfterHandle(({ headers, response }) => {
+        .mapResponse(({ headers, response }) => {
             if (
                 headers.accept?.includes(
                     options.mimeType ?? DEFAULT_MIME_TYPE,
