@@ -1,6 +1,6 @@
 {
     "name": "elysia-msgpack",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "The library for elysia which allows you to work with MessagePack. To pack/unpack it, we use really fast msgpackr",
     "homepage": "https://github.com/kravetsone/elysia-msgpack",
     "main": "dist/index.js",
