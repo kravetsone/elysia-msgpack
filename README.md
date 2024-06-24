@@ -17,9 +17,11 @@ import { msgpack } from "elysia-msgpack"
 
 const app = new Elysia()
     .use(msgpack())
-    .post("/", ({ body }) => {
+    .post("/", ({ body, msgpack }) => {
         // body is unpacked MessagePack if content-type header contains application/x-msgpack
 
+
+        //  also you can work with Packr instance via msgpack decorator
 
         // if accept header contains application/x-msgpack
         // this response will become a MessagePack,
@@ -74,7 +76,17 @@ console.log(data);
 
 [All options of msgpackr constructor](https://github.com/kriszyp/msgpackr?tab=readme-ov-file#options) (but we set useRecords to `false` by default)
 
+| Key                | Type                                                                                                            | Default                                                | Description                                                         |
+| ------------------ | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------- |
+| builder?           | [XmlBuilderOptions](https://github.com/NaturalIntelligence/fast-xml-parser/blob/master/docs/v4/3.XMLBuilder.md) |                                                        | Options to configure `XML` builder                                  |
+| parser?            | [X2jOptions](https://github.com/NaturalIntelligence/fast-xml-parser/blob/master/docs/v4/2.XMLparseOptions.md)   |                                                        | Options to configure `XML` parser                                   |
+| contentTypes?      | string[]                                                                                                        | ["text/xml", "application/xml", "application/rss+xml"] | An array of `content-types` that need to be serialized/deserialized |
+| force?             | boolean                                                                                                         | false                                                  | Don't look at the `accept` header to serialize?                     |
+| transformResponse? | (value: any) => any                                                                                             |                                                        | Handler to transform `response`                                     |
+| as?                | [LifeCycleType](https://elysiajs.com/essential/scope.html#hook-type)                                            | "scoped"                                               | Option to specify `type` of hooks                                   |
+
 and `mimeType` - it's value to detect msgpack content-type and responding with it if accept contains this `mimeType`. Default is `application/x-msgpack`.
+and
 
 <!-- prettier-ignore -->
 ```ts

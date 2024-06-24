@@ -23,6 +23,7 @@ export function msgpack<Type extends LifeCycleType = "scoped">(
 		name: "elysia-msgpack",
 		seed: options,
 	})
+		.decorate("msgpack", packr)
 		.onParse({ as }, async ({ request }, contentType) => {
 			if (contentType === mimeType)
 				return packr.unpack(Buffer.from(await request.arrayBuffer()));
