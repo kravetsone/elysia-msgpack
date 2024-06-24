@@ -4,13 +4,13 @@ import type { AppType } from "./server";
 
 const app = treaty<AppType>("localhost:4888", {
 	onRequest: (path, { body }) => {
-		if (typeof body === "object")
-			return {
-				headers: {
-					"content-type": "application/x-msgpack",
-				},
-				body: pack(body),
-			};
+		return {
+			headers: {
+				"content-type": "application/x-msgpack",
+				accept: "application/x-msgpack",
+			},
+			body: pack(body),
+		};
 	},
 	onResponse: async (response) => {
 		if (

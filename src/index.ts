@@ -10,9 +10,10 @@ export interface ElysiaMsgpackOptions<Type extends LifeCycleType = "scoped">
 	as?: Type;
 }
 
-export function msgpack<Type extends LifeCycleType>(
+export function msgpack<Type extends LifeCycleType = "scoped">(
 	options: ElysiaMsgpackOptions<Type> = {},
 ) {
+	options.useRecords ??= false;
 	const packr = new Packr(options);
 
 	const mimeType = options.mimeType ?? DEFAULT_MIME_TYPE;
@@ -30,7 +31,7 @@ export function msgpack<Type extends LifeCycleType>(
 			if (response && (options.force || headers.accept?.includes(mimeType))) {
 				return new Response(packr.pack(response), {
 					headers: {
-						"content-type": mimeType,
+						"Content-Type": mimeType,
 					},
 				});
 			}

@@ -45,13 +45,13 @@ import type { AppType } from "./server";
 
 const app = treaty<AppType>("localhost:4888", {
     onRequest: (path, { body }) => {
-        if (typeof body === "object")
-            return {
-                headers: {
-                    "content-type": "application/x-msgpack",
-                },
-                body: pack(body),
-            };
+        return {
+            headers: {
+                "content-type": "application/x-msgpack",
+                accept: "application/x-msgpack",
+            },
+            body: pack(body),
+        };
     },
     onResponse: async (response) => {
         if (
@@ -72,7 +72,7 @@ console.log(data);
 
 ### Options
 
-[All options of msgpackr constructor](https://github.com/kriszyp/msgpackr?tab=readme-ov-file#options)
+[All options of msgpackr constructor](https://github.com/kriszyp/msgpackr?tab=readme-ov-file#options) (but we set useRecords to `false` by default)
 
 and `mimeType` - it's value to detect msgpack content-type and responding with it if accept contains this `mimeType`. Default is `application/x-msgpack`.
 
