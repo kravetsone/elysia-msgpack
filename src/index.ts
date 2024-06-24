@@ -24,7 +24,7 @@ export function msgpack<Type extends LifeCycleType>(
 	})
 		.onParse({ as }, async ({ request }, contentType) => {
 			if (contentType === mimeType)
-				return packr.unpack(new Uint8Array(await request.arrayBuffer()));
+				return packr.unpack(Buffer.from(await request.arrayBuffer()));
 		})
 		.mapResponse({ as }, ({ headers, response }) => {
 			if (response && (options.force || headers.accept?.includes(mimeType))) {
